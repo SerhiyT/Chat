@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Form, Icon, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { Button, Block } from '../../../components/';
 
 
-class LoginForm extends Component {
+class LoginForm extends React.Component {
     render() {
         return (
             <div>

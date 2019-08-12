@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Form, Icon, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { Button, Block } from '../../../components';
 
 
-class RegisterForm extends Component {
+class RegisterForm extends React.Component {
     render() {
         const success = false;
         return (
@@ -20,27 +20,28 @@ class RegisterForm extends Component {
                                 <Input
                                     prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                     placeholder="E-mail"
+                                    type="email"
                                 />
                             </Form.Item>
                             <Form.Item>
                                 <Input
                                     prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                    type="password"
                                     placeholder="Name"
+                                    type="text"
                                 />
                             </Form.Item>
                             <Form.Item>
                                 <Input
                                     prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                    type="password"
                                     placeholder="Password"
+                                    type="password"
                                 />
                             </Form.Item>
                             <Form.Item>
                                 <Input
                                     prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                    type="password"
                                     placeholder="Repeat the password"
+                                    type="password"
                                 />
                             </Form.Item>
                             <Form.Item>

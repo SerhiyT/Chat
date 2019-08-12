@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+.message {
+    display: flex;
+    max-width: 350px;
+    margin-bottom: 13px;
+
+    &__avatar {
+        display: flex;
+        flex-direction: column-reverse;
+
+        img {
+            border-radius: 50px;
+            width: 34px;
+            height: 34px;
+            margin-right: 12px;
+            margin-bottom: 21px;
+        }
+    }
+
+    &__content {}
+
+    &__bubble {
+        position: relative;
+        background: $mainBlue;
+        border-radius: 12px 12px 12px 0px;
+        padding: 15px;
+        margin-bottom: 5px;
+    }
+
+    &__text {
+        font-size: 14px;
+        color: $mainWhite;
+        line-height: 19px;
+    }
+
+    &__date {
+        font-size: 12px;
+        opacity: 0.5;
+    }
+}
