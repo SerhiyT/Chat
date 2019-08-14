@@ -10,7 +10,6 @@
         display: flex;
         max-width: 350px;
         margin-bottom: 13px;
-        position: relative;
     }
 
     &__avatar {
@@ -40,10 +39,14 @@
         line-height: 19px;
     }
 
-    &__iconCheked {
+    &__readed {
         position: absolute;
         bottom: 20px;
         left: -25px;
+
+        &__unReaded {
+            left: -20px;
+        }
     }
 
     &__date {
@@ -67,8 +70,15 @@
             }
         }
 
+        #{$self}__icon {
+            left: 0;
+            bottom: 0px;
+            position: absolute;
+        }
+
         #{$self}__info {
             text-align: right;
+            position: relative;
         }
 
         #{$self}__bubble {
