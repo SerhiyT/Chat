@@ -1,7 +1,10 @@
 import React from 'react'
 import { Form, Icon, Input } from 'antd';
 import { Link } from 'react-router-dom';
+
 import { Button, Block } from '../../../components';
+import { validateField } from '../../../utils/helpers';
+
 
 const success = false;
 
@@ -23,8 +26,9 @@ const RegisterForm = (props) => {
             <Block>
                 {!success ? (
                     <Form onSubmit={handleSubmit} className="login-form">
-                        <Form.Item validateStatus={
-                            !touched.email ? '' : errors.email ? 'error' : 'success'} hasFeedback>
+                        <Form.Item validateStatus={validateField("email", touched, errors)}
+                            help={!touched.email ? '' : errors.email}
+                            hasFeedback>
                             <Input
                                 id="email"
                                 prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -42,8 +46,9 @@ const RegisterForm = (props) => {
                                 type="text"
                             />
                         </Form.Item>
-                        <Form.Item validateStatus={
-                            !touched.password ? '' : errors.password ? 'error' : 'success'} hasFeedback>
+                        <Form.Item validateStatus={validateField("password", touched, errors)}
+                            help={!touched.password ? '' : errors.password}
+                            hasFeedback>
                             <Input
                                 id="password"
                                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -54,11 +59,13 @@ const RegisterForm = (props) => {
                                 onBlur={handleBlur}
                             />
                         </Form.Item>
-                        <Form.Item>
+                        <Form.Item validateStatus={validateField("password", touched, errors)}
+                            help={!touched.password ? '' : errors.password}
+                            hasFeedback>
                             <Input
                                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                 placeholder="Repeat the password"
-                                type="password"
+                                type="password2"
                             />
                         </Form.Item>
                         <Form.Item>
