@@ -1,38 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
-import enLocale from 'date-fns/locale/en';
 import classNames from 'classnames';
 
-import svgReaded from '../../assets/icons/Readed.svg';
-import svgUnReaded from '../../assets/icons/UnReaded.svg';
+import { Time, ReadChekedIcon } from '../../components';
 
 import '../Message/Message.scss';
 
 
-const Message = ({ avatar, user, text, date, isMe, isReaded }) => {
+const Message = ({ avatar, user, text, date, isMe, isReaded, isTyping, attachments }) => {
     return (
-        <div className={classNames("message", { "message--isme": isMe })}>
+        <div className={classNames("message", { "message--isme": isMe, "message--image": attachments })}>
             <div className="message__content">
                 <div className="message__avatar">
                     <img src={avatar} alt={`Avatar ${user.fullname}`} />
                 </div>
                 <div className="message__info">
-                    <div className="message__bubble">
-                        <p className="message__text">{text}</p>
-                    </div>
-                    {isMe ? (
-                        <div className="message__icon">
-                            {isMe && isReaded ? (
-                                <img src={svgReaded} alt="Cheked icon" />
-                            ) : (
-                                    <img src={svgUnReaded} alt="UnCheked icon" />
-                                )}
+                    {(text || isTyping) && <div className="message__bubble">
+                        {text && <p className="message__text">{text}</p>}
+                        {isTyping && (<div class="message__typing-indicator">
+                            <span />
+                            <span />
+                            <span />
                         </div>
-                    ) : (<span></span>)}
-                    <time className="message__date">
-                        {distanceInWordsToNow(date, { addSuffix: true, locale: enLocale })}
-                    </time>
+                        )}
+                    </div>}
+                    <div className="message__icon">
+                        <ReadChekedIcon isMe={isMe} isReaded={isReaded} />
+                    </div>
+                    <div className="message__attachments">
+                        {attachments &&
+                            attachments.map(item => (
+                                <div className="message__attachments-item">
+                                    <img src={item.url} alt={item.filename} />
+                                </div>
+                            ))}
+                    </div>
+                    {date && <time className="message__date">
+                        <Time date={date} />
+                    </time>}
                 </div>
             </div>
         </div>
@@ -47,6 +52,10 @@ Message.propTypes = {
     text: PropTypes.string,
     date: PropTypes.string,
     user: PropTypes.object,
+    attachments: PropTypes.object,
+    isMe: PropTypes.bool,
+    isReaded: PropTypes.bool,
+    isTyping: PropTypes.bool
 }
 
 export default Message;
