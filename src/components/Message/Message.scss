@@ -103,6 +103,12 @@
         }
     }
 
+    &--is-typing {
+        #{$self}__bubble {
+            margin-bottom: 0;
+        }
+    }
+
     &--image {
         #{$self}__attachments {
             &-item {
@@ -114,7 +120,51 @@
         }
     }
 
-    &__typing-indicator {
+    &--is-audio {
+
+        #{$self}__bubble {
+            width: 300px;
+        }
+
+        #{$self}__audio {
+
+            &-info {
+                display: flex;
+                align-items: center;
+                justify-content: space-between
+            }
+
+            &-btn {
+                button {
+                    cursor: pointer;
+                    border: 0;
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 30px;
+                    background: $mainBlue;
+
+                    img {
+                        width: 13px;
+                    }
+                }
+            }
+
+            &-duration {
+                font-weight: bolder;
+                opacity: 0.5;
+                font-size: 14px;
+            }
+
+            &-progress {
+                left: 0;
+                position: absolute;
+                background-color: black;
+            }
+        }
+    }
+
+    //================Typing animation====================//
+    &__typing {
         display: table;
 
         span {
@@ -147,3 +197,5 @@
         }
     }
 }
+
+//================Typing animation====================//
