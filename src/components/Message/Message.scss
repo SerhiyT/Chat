@@ -124,6 +124,8 @@
 
         #{$self}__bubble {
             width: 300px;
+            position: relative;
+            overflow: hidden;
         }
 
         #{$self}__audio {
@@ -131,21 +133,25 @@
             &-info {
                 display: flex;
                 align-items: center;
-                justify-content: space-between
+                justify-content: space-between;
+                position: relative;
             }
 
             &-btn {
                 button {
+                    display: flex;
+                    align-items: center;
                     cursor: pointer;
                     border: 0;
-                    width: 28px;
-                    height: 28px;
+                    width: 25px;
+                    height: 25px;
                     border-radius: 30px;
                     background: $mainBlue;
 
                     img {
-                        width: 13px;
+                        width: 14px;
                     }
+
                 }
             }
 
@@ -156,9 +162,12 @@
             }
 
             &-progress {
+                height: 100%;
                 left: 0;
+                top: 0;
                 position: absolute;
-                background-color: black;
+                background-color: #4682b4;
+                opacity: 0.3;
             }
         }
     }

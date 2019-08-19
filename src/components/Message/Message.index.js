@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -13,6 +13,40 @@ import '../Message/Message.scss';
 const Message = ({ avatar, user, text, date, isMe, isReaded, isTyping, attachments, audio }) => {
 
     const [isPlaying, setIsPlaying] = useState(false);
+    const audioElem = useRef(null);
+
+    useEffect(() => {
+        audioElem.current.addEventListener(
+            'playing',
+            () => {
+                setIsPlaying(true)
+            },
+            false
+        );
+        audioElem.current.addEventListener(
+            'ended',
+            () => {
+                setIsPlaying(false)
+            },
+            false
+        );
+        audioElem.current.addEventListener(
+            'pause',
+            () => {
+                setIsPlaying(false)
+            },
+            false
+        );
+    });
+
+    const togglePlay = () => {
+        audioElem.current.volume = "0.1"
+        if (!isPlaying) {
+            audioElem.current.play();
+        } else {
+            audioElem.current.pause();
+        }
+    }
 
     return (
         <div className={classNames("message", {
@@ -36,12 +70,13 @@ const Message = ({ avatar, user, text, date, isMe, isReaded, isTyping, attachmen
                         </div>
                         )}
                         {audio && (<div className="message__audio">
+                            <audio ref={audioElem} src={audio} preload="auto" />
                             <div className="message__audio-progress" style={{ width: '44%' }} />
                             <div className="message__audio-info">
                                 <div className="message__audio-btn">
-                                    <button>
+                                    <button onClick={togglePlay}>
                                         {isPlaying ? (
-                                            <img src={pauseSvg} alt="Pause" />
+                                            <img src={pauseSvg} alt="Pause" className="pause" />
                                         ) : (
                                                 <img src={playSvg} alt="Play" />
                                             )}
