@@ -1,6 +1,7 @@
 @import '~antd/dist/antd.css';
 @import '../styles/variables';
 @import 'reset-css';
+@import './layouts/chat';
 
 body,
 html,
@@ -8,7 +9,7 @@ html,
 .wrapper {
     height: 100%;
     color: $mainWhite;
-    background-color: $mainBC;
+    background-color: $BC;
     font-family: 'Roboto', sans-serif;
 }
 
