@@ -6,5 +6,5 @@ export { default as Time } from './Time/Time.index';
 export { default as ReadChekedIcon } from './ReadChekedIcon/ReadChekedIcon.index ';
 export { default as Dialogs } from './Dialogs/Dialogs.index ';
 export { default as AvatarGenerate } from './AvatarGenerate/AvatarGenerate.index';
-
+export { default as ChatInput } from './ChatInput/ChatInput.index';
 

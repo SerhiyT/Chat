@@ -1,0 +1,48 @@
+@import '../../styles/variables';
+
+.chat-input {
+  display: flex;
+  position: relative;
+  margin: 20px;
+  align-content: center;
+
+  .ant-input {
+    background-color: $mainDarker;
+    border-style: none;
+    color: $mainGrey;
+  }
+
+  &__smile-btn {
+    margin-right: 15px;
+
+    i.anticon {
+      margin-top: 10px;
+    }
+  }
+
+  i.anticon {
+    opacity: 0.5;
+    cursor: pointer;
+    font-size: 20px;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    width: 55px;
+    justify-content: space-between;
+    margin-left: 15px;
+  }
+
+  input {
+    &:focus {
+      box-shadow: none;
+      border: none;
+    }
+  }
+}
