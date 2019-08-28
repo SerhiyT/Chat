@@ -1,7 +1,9 @@
 import React from 'react';
-import { Icon, Input } from 'antd';
+import { Icon } from 'antd';
 
-import { Dialogs, Message, ChatInput } from '../../components'
+import { Message, ChatInput } from '../../components';
+import { Dialogs } from '../../containers';
+import dialogsJSON from '../../Dialogs.json';
 
 import '../Home/Home.scss';
 
@@ -9,79 +11,9 @@ import '../Home/Home.scss';
 const Home = () => (
     <section className="home">
         <div className="chat">
-
             <div className="chat__sidebar">
-                <div className="chat__sidebar-header">
-                    <div className="chat__sidebar-menu">
-                        <Icon type="menu" />
-                    </div>
-
-                    <div className="chat__sidebar-search">
-                        <Input
-                            placeholder="Search"
-                            onSearch={value => console.log(value)}
-                            style={{ width: 250 }}
-                        />
-                    </div>
-
-                </div>
-
                 <div className="chat__sidebar-dialogs">
-                    <Dialogs
-                        userId={0}
-                        items={[
-                            {
-                                _id: '494d7bc4786e549b652fc0faabf6c9ed',
-                                text: 'To drop bombs, but he keeps on forgettin',
-                                created_at: "Sat Aug 19 2019 17:54:22",
-                                user: {
-                                    _id: '494d7bc4786e549b652fc0faabf6c9ed',
-                                    fullname: 'Serhiy T',
-                                    avatar: null
-                                }
-                            },
-                            {
-                                _id: '494d7bc4786e549b652fc0faabf6c9ed',
-                                text: 'His palms are sweaty, knees weak, arms are heavy',
-                                created_at: "Sat Aug 19 2019 8:53:22",
-                                user: {
-                                    _id: '494d7bc4786e549b652fc0faabf6c9ed',
-                                    fullname: 'And P',
-                                    avatar: 'https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-1/c0.0.160.160a/p160x160/996022_394140564047516_799882837_n.jpg?_nc_cat=102&_nc_oc=AQnGq7TLkqbKwd4y3J092_8HiHo1oZOJPfVg4tWsYzYOsNNTW-kPAWbfY-21P80wmrM&_nc_ht=scontent-waw1-1.xx&oh=7b69ddd973476c0a6f08a08957618283&oe=5DE62E0B'
-                                }
-                            },
-                            {
-                                _id: 'd34d7bc4786e549b652fc0faabf6c9ed',
-                                text: 'Theres vomit on his sweater already, moms spaghetti',
-                                created_at: "Fri Aug 23 2019 20:40:4",
-                                user: {
-                                    _id: 'd34d7bc4786e549b652fc0faabf6c9ed',
-                                    fullname: 'And V',
-                                    avatar: null
-                                }
-                            },
-                            {
-                                _id: '134d7bc4786e549b652fc0faabf6c9ed',
-                                text: 'Hes nervous, but on the surface he looks calm and ready',
-                                created_at: "Sat Aug 13 2019 22:54:22",
-                                user: {
-                                    _id: '134d7bc4786e549b652fc0faabf6c9ed',
-                                    fullname: 'Pavel V',
-                                    avatar: null
-                                }
-                            },
-                            {
-                                _id: '546d7bc4786e549b652fc0faabf6c9ed',
-                                text: 'You better lose yourself in the music, the moment',
-                                created_at: "Fri Aug 23 2019 20:39:41",
-                                user: {
-                                    _id: '546d7bc4786e549b652fc0faabf6c9ed',
-                                    fullname: 'Ihor Cho',
-                                    avatar: null
-                                }
-                            },
-                        ]}
-                    />
+                    <Dialogs userId={0} items={dialogsJSON} />
                 </div>
             </div>
 
@@ -96,7 +28,7 @@ const Home = () => (
                             <div className="status status--online">online</div>
                         </div>
                     </div>
-                    <Icon type="more" style={{ fontSize: '20px' }} />
+                    <Icon type="more" style={{ fontSize: '30px' }} />
                 </div>
                 <div className="chat__dialog-messages">
                     <Message avatar="https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-1/c0.1.160.160a/p160x160/65880009_2343537199033014_3578762992377921536_n.jpg?_nc_cat=100&_nc_oc=AQnoCz5V3pWZ2327C3zIfdUFmgS9LJU44P4cFxnoEkw1f0Gfbmn3e-qmtWoRN6_OePg&_nc_ht=scontent-waw1-1.xx&oh=5b9521f558a8b8833c02ebf8bb8c4004&oe=5DDEBE47"
@@ -128,6 +60,34 @@ const Home = () => (
                     <Message avatar="https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-1/c0.1.160.160a/p160x160/65880009_2343537199033014_3578762992377921536_n.jpg?_nc_cat=100&_nc_oc=AQnoCz5V3pWZ2327C3zIfdUFmgS9LJU44P4cFxnoEkw1f0Gfbmn3e-qmtWoRN6_OePg&_nc_ht=scontent-waw1-1.xx&oh=5b9521f558a8b8833c02ebf8bb8c4004&oe=5DDEBE47"
                         name="Serh"
                         isTyping={true} />
+                    <Message avatar="https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-1/c0.1.160.160a/p160x160/65880009_2343537199033014_3578762992377921536_n.jpg?_nc_cat=100&_nc_oc=AQnoCz5V3pWZ2327C3zIfdUFmgS9LJU44P4cFxnoEkw1f0Gfbmn3e-qmtWoRN6_OePg&_nc_ht=scontent-waw1-1.xx&oh=5b9521f558a8b8833c02ebf8bb8c4004&oe=5DDEBE47"
+                        name="Serh"
+                        text="Text messaging, or texting, is the act of composing and sending electronic"
+                        date="Mon Aug 12 2019 15:23:02" />
+                    <Message avatar="https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-1/c0.1.160.160a/p160x160/65880009_2343537199033014_3578762992377921536_n.jpg?_nc_cat=100&_nc_oc=AQnoCz5V3pWZ2327C3zIfdUFmgS9LJU44P4cFxnoEkw1f0Gfbmn3e-qmtWoRN6_OePg&_nc_ht=scontent-waw1-1.xx&oh=5b9521f558a8b8833c02ebf8bb8c4004&oe=5DDEBE47"
+                        name="Serh"
+                        text="Text messaging, or texting, is the act of composing and sending electronic"
+                        date="Mon Aug 12 2019 15:23:02" />
+                    <Message avatar="https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-1/c0.1.160.160a/p160x160/65880009_2343537199033014_3578762992377921536_n.jpg?_nc_cat=100&_nc_oc=AQnoCz5V3pWZ2327C3zIfdUFmgS9LJU44P4cFxnoEkw1f0Gfbmn3e-qmtWoRN6_OePg&_nc_ht=scontent-waw1-1.xx&oh=5b9521f558a8b8833c02ebf8bb8c4004&oe=5DDEBE47"
+                        name="Serh"
+                        text="Text messaging, or texting, is the act of composing and sending electronic"
+                        date="Mon Aug 12 2019 15:23:02" />
+                    <Message avatar="https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-1/c0.1.160.160a/p160x160/65880009_2343537199033014_3578762992377921536_n.jpg?_nc_cat=100&_nc_oc=AQnoCz5V3pWZ2327C3zIfdUFmgS9LJU44P4cFxnoEkw1f0Gfbmn3e-qmtWoRN6_OePg&_nc_ht=scontent-waw1-1.xx&oh=5b9521f558a8b8833c02ebf8bb8c4004&oe=5DDEBE47"
+                        name="Serh"
+                        text="Text messaging, or texting, is the act of composing and sending electronic"
+                        date="Mon Aug 12 2019 15:23:02" />
+                    <Message avatar="https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-1/c0.1.160.160a/p160x160/65880009_2343537199033014_3578762992377921536_n.jpg?_nc_cat=100&_nc_oc=AQnoCz5V3pWZ2327C3zIfdUFmgS9LJU44P4cFxnoEkw1f0Gfbmn3e-qmtWoRN6_OePg&_nc_ht=scontent-waw1-1.xx&oh=5b9521f558a8b8833c02ebf8bb8c4004&oe=5DDEBE47"
+                        name="Serh"
+                        text="Text messaging, or texting, is the act of composing and sending electronic"
+                        date="Mon Aug 12 2019 15:23:02" />
+                    <Message avatar="https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-1/c0.1.160.160a/p160x160/65880009_2343537199033014_3578762992377921536_n.jpg?_nc_cat=100&_nc_oc=AQnoCz5V3pWZ2327C3zIfdUFmgS9LJU44P4cFxnoEkw1f0Gfbmn3e-qmtWoRN6_OePg&_nc_ht=scontent-waw1-1.xx&oh=5b9521f558a8b8833c02ebf8bb8c4004&oe=5DDEBE47"
+                        name="Serh"
+                        text="Text messaging, or texting, is the act of composing and sending electronic"
+                        date="Mon Aug 12 2019 15:23:02" />
+                    <Message avatar="https://scontent-waw1-1.xx.fbcdn.net/v/t1.0-1/c0.1.160.160a/p160x160/65880009_2343537199033014_3578762992377921536_n.jpg?_nc_cat=100&_nc_oc=AQnoCz5V3pWZ2327C3zIfdUFmgS9LJU44P4cFxnoEkw1f0Gfbmn3e-qmtWoRN6_OePg&_nc_ht=scontent-waw1-1.xx&oh=5b9521f558a8b8833c02ebf8bb8c4004&oe=5DDEBE47"
+                        name="Serh"
+                        text="Text messaging, or texting, is the act of composing and sending electronic"
+                        date="Mon Aug 12 2019 15:23:02" />
                 </div>
                 <div className="chat__dialog-input">
                     <ChatInput />

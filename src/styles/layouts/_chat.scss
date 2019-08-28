@@ -2,38 +2,38 @@
 
 
 .chat {
+
     display: flex;
     background-color: $mainBC;
     width: 1200px;
+    max-height: 800px;
     margin: 0 auto;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 
+    i.anticon {
+
+        opacity: 0.5;
+        cursor: pointer;
+        font-size: 20px;
+        transition: opacity 0.2s ease-in-out;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
     &__sidebar {
-        width: 307px;
         border-right: 1px solid #1a1a1a;
 
-        &-header {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-            align-items: center;
-        }
-
-        &-search {
-            padding: 0 20px 0px 8px;
-
-            .ant-input {
-                background-color: $mainDarker;
-                border-style: none;
-                color: $mainGrey;
-            }
-        }
-
         &-dialogs {
+            height: calc(100% - 54px);
 
             .dialogs {
+                height: 100%;
+                overflow: auto;
+
                 &__item {
-                    padding: 8px 5px;
+                    padding: 5px;
                     cursor: pointer;
 
                     &.active,
@@ -44,18 +44,11 @@
                 }
             }
         }
-
-        &-menu {
-            opacity: 0.5;
-
-            &:hover {
-                opacity: 1;
-            }
-        }
     }
 
 
     &__dialog {
+
         flex: 1;
         position: relative;
 
@@ -64,7 +57,6 @@
             justify-content: space-between;
             align-items: center;
             padding: 8px;
-            border-bottom: 1px solid #181717;
 
             &-center {
                 text-align: center;
@@ -85,6 +77,8 @@
         }
 
         &-messages {
+            height: calc(100% - 115px);
+            overflow: auto;
             padding: 9px;
             padding-bottom: 0;
         }

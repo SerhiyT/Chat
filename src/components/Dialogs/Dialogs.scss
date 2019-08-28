@@ -1,7 +1,28 @@
 @import '../../styles/variables';
 
 .dialogs {
-  max-width: 300px;
+max-width: 300px;
+  &__sidebar {
+    height: 100%;
+
+    &-header {
+      align-items: center;
+      display: flex;
+      padding: 10px;
+      justify-content: space-between;
+
+      &-search {
+        padding: 0 8px 0px 8px;
+
+        .ant-input {
+          width: 245px;
+          background-color: $mainDarker;
+          border-style: none;
+          color: $mainGrey;
+        }
+      }
+    }
+  }
 
   &__item {
     $item: &;
