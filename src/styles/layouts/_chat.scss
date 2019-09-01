@@ -6,7 +6,7 @@
     display: flex;
     background-color: $mainBC;
     width: 1200px;
-    max-height: 800px;
+    height: 800px;
     margin: 0 auto;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 
@@ -51,6 +51,16 @@
 
         flex: 1;
         position: relative;
+
+        .ant-empty {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            justify-content: center;
+            color: $mainGrey;
+            opacity: 0.5;
+        }
 
         &-header {
             display: flex;

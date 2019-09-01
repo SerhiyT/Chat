@@ -1,6 +1,6 @@
 import React from 'react';
 import orderBy from 'lodash/orderBy';
-import { Icon, Input } from 'antd';
+import { Icon, Input, Empty } from 'antd';
 
 import { DialogItem } from '..';
 
@@ -22,13 +22,15 @@ const Dialogs = ({ items, userId, onSearch, inputValue }) => (
         </div>
 
         <div className="dialogs">
-            {orderBy(items, ["created_at"], ["desc"]).map(item => (
-                <DialogItem
-                    key={item._id}
-                    isMe={item.user._id === userId}
-                    {...item}
-                />
-            ))}
+            {items.length
+                ? (orderBy(items, ["created_at"], ["desc"]).map(item => (
+                    <DialogItem
+                        key={item._id}
+                        isMe={item.user._id === userId}
+                        {...item} />
+                )))
+                : (<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No messages found" />)
+            }
         </div>
     </div>
 );
