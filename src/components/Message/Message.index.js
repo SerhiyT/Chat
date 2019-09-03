@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import { Time, ReadChekedIcon, /*AvatarGenerate*/ } from '../../components';
+import { Time, ReadChekedIcon, AvatarGenerate } from '../../components';
 import { convertCurrentTime } from '../../utils/helpers'
 
 import waveSvg from '../../assets/icons/wave.svg'
@@ -95,7 +95,7 @@ const Message = ({ avatar, user, text, date, isMe, isReaded, isTyping, attachmen
         >
             <div className="message__content">
                 <div className="message__avatar">
-                    <img src={avatar} alt={`Avatar ${user.fullname}`} />
+                    <AvatarGenerate user={user} />
                 </div>
                 <div className="message__info">
                     {(audio || text || isTyping) && (<div className="message__bubble">

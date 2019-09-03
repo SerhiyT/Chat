@@ -1,9 +1,8 @@
 import React from 'react';
 import { Icon } from 'antd';
 
-import { Messages, ChatInput } from '../../components';
-import { Dialogs } from '../../containers';
-
+import { ChatInput } from '../../components';
+import { Dialogs, Messages } from '../../containers';
 
 import '../Home/Home.scss';
 
