@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { connect } from 'react-redux';
 
 import { messagesActions } from '../redux/actions';
 import { Messages as BaseMessages } from '../components/';
 
 
-const Messages = ({ currentDialogId, fetchMessages, items }) => {
+const Messages = ({ currentDialogId, fetchMessages, items, isLoading }) => {
+    const messagesRef = useRef(null);
 
     useEffect(() => {
         if (currentDialogId) {
@@ -13,8 +14,16 @@ const Messages = ({ currentDialogId, fetchMessages, items }) => {
         }
     }, [currentDialogId]);
 
+    useEffect(() => {
+        if (messagesRef.current) {
+            messagesRef.current.scrollTo(0, 99999999)
+        }
+    }, [items])
+
     return <BaseMessages
         items={items}
+        isLoading={isLoading}
+        blockRef={messagesRef}
     />;
 };
 
@@ -22,7 +31,8 @@ const Messages = ({ currentDialogId, fetchMessages, items }) => {
 export default connect(
     ({ dialogs, messages }) => ({
         currentDialogId: dialogs.currentDialogId,
-        items: messages.items
+        items: messages.items,
+        isLoading: messages.isLoading
     }),
     messagesActions
 )(Messages);
