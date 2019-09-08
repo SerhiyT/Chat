@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from 'antd';
+import { Button } from 'antd';
 
 import { ChatInput } from '../../components';
 import { Dialogs, Messages } from '../../containers';
@@ -27,7 +27,7 @@ const Home = () => (
                             <div className="status status--online">online</div>
                         </div>
                     </div>
-                    <Icon type="more" style={{ fontSize: '30px' }} />
+                    <Button type="link" shape="circle" icon="more" style={{ fontSize: '25px' }} />
                 </div>
                 <div className="chat__dialog-messages">
                     <Messages />

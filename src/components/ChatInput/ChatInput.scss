@@ -13,14 +13,15 @@
   }
 
   &__smile-btn {
-    margin-right: 15px;
+    margin-right: 5px;
 
     i.anticon {
       margin-top: 10px;
     }
   }
 
-  i.anticon {
+  .ant-btn-circle {
+    color: $mainGrey;
     opacity: 0.5;
     cursor: pointer;
     font-size: 20px;
@@ -28,15 +29,26 @@
 
     &:hover {
       opacity: 1;
+      color: $mainGrey;
     }
   }
 
   &__actions {
     display: flex;
     align-items: center;
-    width: 55px;
+    width: 60px;
     justify-content: space-between;
-    margin-left: 15px;
+    margin-left: 10px;
+
+    &-upload-btn {
+      cursor: pointer;
+
+      &:hover {
+        button {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   input {

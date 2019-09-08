@@ -15,9 +15,7 @@ const Messages = ({ currentDialogId, fetchMessages, items, isLoading }) => {
     }, [currentDialogId]);
 
     useEffect(() => {
-        if (messagesRef.current) {
-            messagesRef.current.scrollTo(0, 99999999)
-        }
+        messagesRef.current.scrollTo(0, 99999999)
     }, [items])
 
     return <BaseMessages

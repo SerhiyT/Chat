@@ -1,6 +1,6 @@
 import React from 'react';
 import orderBy from 'lodash/orderBy';
-import { Icon, Input, Empty } from 'antd';
+import { Button, Input, Empty } from 'antd';
 
 import { DialogItem } from '..';
 
@@ -11,7 +11,7 @@ const Dialogs = ({ items, userId, onSearch, inputValue, onSelectDialog }) => (
 
     <div className="dialogs__sidebar">
         <div className="dialogs__sidebar-header">
-            <Icon type="menu" />
+            <Button type="link" shape="circle" icon="menu" />
             <div className="dialogs__sidebar-header-search">
                 <Input
                     placeholder="Search"
