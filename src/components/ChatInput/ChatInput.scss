@@ -20,6 +20,11 @@
     }
   }
 
+  &__emoji-picker {
+    position: absolute;
+    bottom: 50px;
+  }
+
   .ant-btn-circle {
     color: $mainGrey;
     opacity: 0.5;

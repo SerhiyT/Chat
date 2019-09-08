@@ -7,7 +7,7 @@ import { DialogItem } from '..';
 import '../Dialogs/Dialogs.scss';
 
 
-const Dialogs = ({ items, userId, onSearch, inputValue, onSelectDialog }) => (
+const Dialogs = ({ items, userId, onSearch, inputValue, onSelectDialog, currentDialogId }) => (
 
     <div className="dialogs__sidebar">
         <div className="dialogs__sidebar-header">
@@ -28,6 +28,7 @@ const Dialogs = ({ items, userId, onSearch, inputValue, onSelectDialog }) => (
                         onSelect={onSelectDialog}
                         key={item._id}
                         isMe={item.user._id === userId}
+                        currentDialogId={currentDialogId}
                         {...item} />
                 )))
                 : (<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="No messages found" />)

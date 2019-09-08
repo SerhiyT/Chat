@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Input, Button } from 'antd';
 import { UploadField } from '@navjobs/upload';
+import { Picker } from 'emoji-mart';
 
 import '../ChatInput/ChatInput.scss';
 
@@ -8,10 +9,25 @@ import '../ChatInput/ChatInput.scss';
 const ChatInput = (props) => {
 
     const [value, setValue] = useState('');
+    const [emojiPickerEnable, setShowEmojiPicker] = useState('');
+
+    const toggleEmojiPicker = () => {
+        setShowEmojiPicker(!emojiPickerEnable);
+    }
+
     return (
         <div className="chat-input">
             <div className="chat-input__smile-btn">
-                <Button type="link" shape="circle" icon="smile" />
+                {emojiPickerEnable && (
+                    <div className="chat-input__emoji-picker">
+                        <Picker set='apple' title="" color="$mainDarker " />
+                    </div>)}
+                <Button
+                    onClick={toggleEmojiPicker}
+                    type="link"
+                    shape="circle"
+                    icon="smile"
+                />
             </div>
             <Input
                 onChange={e => setValue(e.target.value)}
@@ -20,7 +36,6 @@ const ChatInput = (props) => {
             />
             <div className="chat-input__actions">
                 <UploadField
-                    onFiles={files => console.log(files)}
                     containerProps={{ className: 'chat-input__actions-upload-btn' }}
                     uploadProps={{
                         accept: '.jpg,.gif,.png,.jpeg,.bmp',

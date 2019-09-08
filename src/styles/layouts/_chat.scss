@@ -16,12 +16,12 @@
         cursor: pointer;
         font-size: 20px;
         transition: opacity 0.2s ease-in-out;
-    
+
         &:hover {
-          opacity: 1;
-          color: $mainGrey;
+            opacity: 1;
+            color: $mainGrey;
         }
-      }
+    }
 
     &__sidebar {
         border-right: 1px solid #1a1a1a;
@@ -32,9 +32,10 @@
             .dialogs {
                 height: 100%;
                 overflow: auto;
+                max-width: none;
 
                 &__item {
-                    padding: 5px;
+                    padding: 7px;
                     cursor: pointer;
 
                     &.active,

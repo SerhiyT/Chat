@@ -6,7 +6,6 @@
     opacity: 0.5;
   }
 
-  max-width: 300px;
 
   &__sidebar {
     height: 100%;
@@ -34,6 +33,10 @@
     $item: &;
     display: flex;
     margin-bottom: 10px;
+
+    &--selected {
+      background-color: (lighten($mainBC, 10%));
+    }
 
     &-avatar {
       position: relative;
