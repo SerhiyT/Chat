@@ -65,7 +65,7 @@ const RegisterForm = (props) => {
                             <Input
                                 prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                                 placeholder="Repeat the password"
-                                type="password2"
+                                type="password"
                             />
                         </Form.Item>
                         <Form.Item>
