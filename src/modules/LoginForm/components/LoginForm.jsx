@@ -14,6 +14,7 @@ const LoginForm = (props) => {
         handleChange,
         handleSubmit,
         handleBlur,
+        isSubmitting,
     } = props;
 
     return (
@@ -52,6 +53,7 @@ const LoginForm = (props) => {
                     </Form.Item>
                     <Form.Item>
                         <Button
+                            disabled={isSubmitting}
                             type="primary"
                             htmlType="submit"
                             className="login-form-button"

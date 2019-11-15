@@ -13,8 +13,8 @@ export default ({ isAuth, values, errors }) => {
             if (!value) {
                 errors.password = 'Enter password';
             } else if
-                (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value)) {
-                errors.password = isAuth ? 'Incorrect password' : 'The password must contain minimum eight characters, at least one uppercase letter, one lowercase letter and one number.'
+                (!isAuth && !/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value)) {
+                errors.password = 'The password must contain minimum eight characters, at least one uppercase letter, one lowercase letter and one number.'
             }
         }
     }
