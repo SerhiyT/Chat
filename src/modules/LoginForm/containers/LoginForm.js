@@ -1,13 +1,17 @@
+import { connect } from 'react-redux';
 import { withFormik } from 'formik';
 
-import axios from '../../../core/axios';
+import { userActions } from '../../../redux/actions';
 
 import LoginForm from '../components/LoginForm';
 import validateForm from '../../../utils/validate';
-import { notifications } from '../../../utils/helpers';
+
+import store from '../../../redux/store';
 
 
-export default withFormik({
+const LoginFormConnect = connect(state => state, userActions)(LoginForm);
+
+const LoginFormContainer = withFormik({
     enableReinitialize: true,
     mapPropsToValues: () => ({
         email: '',
@@ -22,26 +26,11 @@ export default withFormik({
         return errors;
     },
     handleSubmit: (values, { setSubmitting }) => {
-        return axios
-            .post('user/login', values)
-            .then(({ data }) => {
-                const { status, token } = data;
-                if (status === 'error') {
-                    notifications({
-                        title: 'Authorizations error!',
-                        text: 'Incorrect password or email.',
-                        type: 'error'
-                    })
-                } else {
-                    notifications({
-                        title: 'Authorizations SUCCESS!',
-                        type: 'success'
-                    })
-                }
-                setSubmitting(false);
-            }).catch(() => {
-                setSubmitting(false);
-            })
+        store.dispatch(userActions.fetchUserLogin(values)).then(() => {
+            setSubmitting(false);
+        });
     },
     displayName: 'LoginForm',
-})(LoginForm);
+})(LoginFormConnect);
+
+export default LoginFormContainer;
