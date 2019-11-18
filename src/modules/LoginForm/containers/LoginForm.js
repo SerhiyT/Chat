@@ -26,11 +26,13 @@ const LoginFormContainer = withFormik({
         return errors;
     },
     handleSubmit: (values, { setSubmitting }) => {
-        store.dispatch(userActions.fetchUserLogin(values)).then(() => {
-            setSubmitting(false);
-        });
+        store.dispatch(userActions.fetchUserLogin(values))
+            .then(() => {
+                setSubmitting(false)
+            })
     },
     displayName: 'LoginForm',
 })(LoginFormConnect);
 
 export default LoginFormContainer;
+// git --->  check isAuth / Redirect(isAuth?true:false)

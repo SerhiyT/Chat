@@ -11,9 +11,11 @@ const Actions = {
         payload: id
     }),
     fetchDialogs: () => dispatch => {
-        dialogsAPI.getAllDialogs().then(({ data }) => {
-            dispatch(Actions.setDialogs(data))
-        })
+        dialogsAPI
+            .getAllDialogs()
+            .then(({ data }) => {
+                dispatch(Actions.setDialogs(data))
+            })
     }
 }
 

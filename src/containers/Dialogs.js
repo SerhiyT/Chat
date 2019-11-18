@@ -15,14 +15,14 @@ const Dialogs = ({ fetchDialogs, items, userId, setCurrentDialogId, currentDialo
         );
         setValue(value)
     };
- 
-    useEffect(() => {
-        if (!items.length) {
-            fetchDialogs();
-        } else {
-            setFilteredItems(items);
-        }
-    }, [items]);
+
+    // useEffect(() => {
+    //     if (!items.length) {
+    //         fetchDialogs();
+    //     } else {
+    //         setFilteredItems(items);
+    //     }
+    // }, [items]);
 
     return <BaseDialogs
         userId={userId}
