@@ -1,9 +1,8 @@
 import React from 'react'
-import { Form, Icon, Input } from 'antd';
+import { Form, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 
-import { Button, Block } from '../../../components';
-import { validateField } from '../../../utils/helpers';
+import { Button, Block, FormField } from '../../../components';
 
 
 const success = false;
@@ -26,48 +25,52 @@ const RegisterForm = (props) => {
             <Block>
                 {!success ? (
                     <Form onSubmit={handleSubmit} className="login-form">
-                        <Form.Item validateStatus={validateField("email", touched, errors)}
-                            help={!touched.email ? '' : errors.email}
-                            hasFeedback>
-                            <Input
-                                id="email"
-                                prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                placeholder="Enter your email"
-                                type="email"
-                                value={values.email}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                            />
-                        </Form.Item>
-                        <Form.Item>
-                            <Input
-                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                placeholder="Name"
-                                type="text"
-                            />
-                        </Form.Item>
-                        <Form.Item validateStatus={validateField("password", touched, errors)}
-                            help={!touched.password ? '' : errors.password}
-                            hasFeedback>
-                            <Input
-                                id="password"
-                                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                placeholder="Enter your password"
-                                type="password"
-                                value={values.password}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                            />
-                        </Form.Item>
-                        <Form.Item validateStatus={validateField("password", touched, errors)}
-                            help={!touched.password ? '' : errors.password}
-                            hasFeedback>
-                            <Input
-                                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                                placeholder="Repeat the password"
-                                type="password"
-                            />
-                        </Form.Item>
+                        <FormField
+                            name='email'
+                            placeholder='Enter your email'
+                            icon='mail'
+                            handleChange={handleChange}
+                            handleBlur={handleBlur}
+                            touched={touched}
+                            errors={errors}
+                            values={values}
+                        />
+
+                        <FormField
+                            name='fullname'
+                            placeholder='Name'
+                            icon='user'
+                            handleChange={handleChange}
+                            handleBlur={handleBlur}
+                            touched={touched}
+                            errors={errors}
+                            values={values}
+                        />
+
+                        <FormField
+                            name='password'
+                            type='password'
+                            placeholder='Enter your password'
+                            icon='lock'
+                            handleChange={handleChange}
+                            handleBlur={handleBlur}
+                            touched={touched}
+                            errors={errors}
+                            values={values}
+                        />
+
+                        <FormField
+                            name='password_2'
+                            type='password'
+                            placeholder='Repeat the password'
+                            icon='lock'
+                            handleChange={handleChange}
+                            handleBlur={handleBlur}
+                            touched={touched}
+                            errors={errors}
+                            values={values}
+                        />
+
                         <Form.Item>
                             <Button
                                 onClick={handleSubmit}

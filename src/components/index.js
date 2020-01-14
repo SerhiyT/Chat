@@ -12,3 +12,5 @@ export { default as ReadChekedIcon } from './ReadChekedIcon/ReadChekedIcon.index
 export { default as AvatarGenerate } from './AvatarGenerate/AvatarGenerate.index';
 export { default as ChatInput } from './ChatInput/ChatInput.index';
 
+export { default as FormField } from './FormField/FormField.index';
+

@@ -1,7 +1,7 @@
 export default ({ isAuth, values, errors }) => {
 
     const rules = {
-        email: (value) => {
+        email: value => {
             if (!value) {
                 errors.email = 'Enter E-mail';
             } else if
@@ -9,12 +9,22 @@ export default ({ isAuth, values, errors }) => {
                 errors.email = 'Invalid email address';
             }
         },
-        password: (value) => {
+        password: value => {
             if (!value) {
                 errors.password = 'Enter password';
             } else if
                 (!isAuth && !/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value)) {
                 errors.password = 'The password must contain minimum eight characters, at least one uppercase letter, one lowercase letter and one number.'
+            }
+        },
+        password_2: value => {
+            if (!isAuth && !value === value.password) {
+                errors.password_2 = 'Passwords do not match';
+            }
+        },
+        fullname: value => {
+            if (!isAuth && !value) {
+                errors.fullname = 'Enter your name';
             }
         }
     }

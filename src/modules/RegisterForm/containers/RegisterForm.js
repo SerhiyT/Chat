@@ -10,7 +10,7 @@ export default withFormik({
         email: '',
         fullname: '',
         password: '',
-        password2: '',
+        password_2: '',
     }),
 
     validate: values => {

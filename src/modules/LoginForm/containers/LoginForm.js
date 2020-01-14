@@ -35,4 +35,3 @@ const LoginFormContainer = withFormik({
 })(LoginFormConnect);
 
 export default LoginFormContainer;
-// git --->  check isAuth / Redirect(isAuth?true:false)
