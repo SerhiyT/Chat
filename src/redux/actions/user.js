@@ -18,7 +18,7 @@ const Actions = {
 
     fetchUserLogin: (postData) => dispatch => {
         return userAPI
-            .login(postData)
+            .signIn(postData)
             .then(({ data }) => {
                 const { status, token } = data;
                 if (status === 'error') {
@@ -36,6 +36,16 @@ const Actions = {
                     window.localStorage['token'] = token;
                     dispatch(Actions.fetchUserData())
                 }
+                return data;
+            })
+    },
+
+    fetchUserRegister: (postData) => dispatch => {
+        return userAPI
+            .signUp(postData)
+            .then(({ data }) => {
+                console.log(data)
+                return data;
             })
     }
 }

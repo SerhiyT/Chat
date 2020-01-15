@@ -41,7 +41,7 @@
   &__actions {
     display: flex;
     align-items: center;
-    width: 60px;
+    width: 64px;
     justify-content: space-between;
     margin-left: 10px;
 
@@ -49,6 +49,7 @@
       cursor: pointer;
 
       &:hover {
+
         button {
           opacity: 1;
         }

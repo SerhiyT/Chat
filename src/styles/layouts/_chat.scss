@@ -4,6 +4,11 @@
 .chat {
 
     display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
     background-color: $mainBC;
     width: 1200px;
     height: 800px;
@@ -68,6 +73,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 8px;
+            border-bottom: solid 1px black;
 
             &-center {
                 text-align: center;
@@ -76,7 +82,7 @@
             &-username {
                 display: block;
                 margin-bottom: 5px;
-                font-weight: 600;
+                font-weight: 400;
             }
 
             &.active,
