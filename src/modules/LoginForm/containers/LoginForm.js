@@ -25,11 +25,14 @@ const LoginFormContainer = withFormik({
 
         return errors;
     },
+    
     handleSubmit: (values, { setSubmitting }) => {
         store.dispatch(userActions.fetchUserLogin(values))
             .then(() => {
                 setSubmitting(false)
-            })
+            }).catch(() => {
+                setSubmitting(false)
+            });
     },
     displayName: 'LoginForm',
 })(LoginFormConnect);

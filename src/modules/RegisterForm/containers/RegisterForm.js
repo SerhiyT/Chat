@@ -26,7 +26,9 @@ export default withFormik({
         store.dispatch(userActions.fetchUserRegister(values))
             .then(() => {
                 setSubmitting(false)
-            })
+            }).catch(() => {
+                setSubmitting(false)
+            });
     },
     displayName: 'RegisterForm'
 })(RegisterForm);

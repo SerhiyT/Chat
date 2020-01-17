@@ -18,11 +18,11 @@ const RegisterForm = (props) => {
     } = props;
     return (
         <div>
-            <div className='auth__top'>
-                <h2>Sign up</h2>
-                <p>Please sign up your account</p>
-            </div>
             <Block>
+                <div className='auth__top'>
+                    <h2>Sign up</h2>
+                    <p>Please sign up your account</p>
+                </div>
                 {!success ? (
                     <Form onSubmit={handleSubmit} className="login-form">
                         <FormField

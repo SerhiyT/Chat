@@ -19,11 +19,11 @@ const LoginForm = (props) => {
 
     return (
         <div>
-            <div className='auth__top'>
-                <h2>Sign in</h2>
-                <p>Please log in to your account</p>
-            </div>
             <Block>
+                <div className='auth__top'>
+                    <h2>Sign in</h2>
+                    <p>Please log in to your account</p>
+                </div>
                 <Form onSubmit={handleSubmit} className="login-form">
                     <Form.Item validateStatus={validateField("email", touched, errors)}
                         help={!touched.email ? '' : errors.email}
@@ -60,7 +60,7 @@ const LoginForm = (props) => {
                             size="large">Log in
                             </Button>
                     </Form.Item>
-                    <Link className='auth__register-link' to='/register' >Register now!</Link>
+                    <Link className='auth__register-link' to='/signup' >Register now!</Link>
                 </Form>
             </Block>
         </div>
