@@ -22,12 +22,17 @@ export default withFormik({
         validateForm({ isAuth: false, values, errors });
         return errors;
     },
-    handleSubmit: (values, { setSubmitting }) => {
-        store.dispatch(userActions.fetchUserRegister(values))
-            .then(() => {
-                setSubmitting(false)
-            }).catch(() => {
-                setSubmitting(false)
+    handleSubmit: (values, { setSubmitting, props }) => {
+        store
+            .dispatch(userActions.fetchUserRegister(values))
+            .then(({ status }) => {
+                if (status === 'success') {
+                    props.history.push('/');
+                }
+                setSubmitting(false);
+            })
+            .catch(() => {
+                setSubmitting(false);
             });
     },
     displayName: 'RegisterForm'

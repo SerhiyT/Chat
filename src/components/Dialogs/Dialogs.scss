@@ -1,11 +1,11 @@
 @import '../../styles/variables';
 
+
 .dialogs {
   .ant-empty {
     color: $mainGrey;
     opacity: 0.5;
   }
-
 
   &__sidebar {
     height: 100%;
@@ -32,7 +32,6 @@
   &__item {
     $item: &;
     display: flex;
-    margin-bottom: 10px;
 
     &--selected {
       background-color: (lighten($mainBC, 10%));
@@ -65,7 +64,7 @@
           height: 9px;
           bottom: 0px;
           right: 0px;
-          border: 2px solid $mainWhite
+          border: 1px solid $mainWhite
         }
       }
     }

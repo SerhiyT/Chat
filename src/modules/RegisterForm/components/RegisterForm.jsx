@@ -80,7 +80,7 @@ const RegisterForm = (props) => {
                                 size="large">Sign up
                             </Button>
                         </Form.Item>
-                        <Link className='auth__register-link' to='/login'>Sign in</Link>
+                        <Link className='auth__register-link' to='/signin'>Sign in</Link>
                     </Form>
                 ) : (
                         <div className="auth__success-block">

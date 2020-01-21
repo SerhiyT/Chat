@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect, Switch } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Auth, Home } from './pages';
@@ -8,7 +8,7 @@ const App = props => {
   const { isAuth } = props
   return (
     <div className="wrapper">
-      <Switch>
+      {/* <Switch>
         <Route
           exact
           path={["/signin", "/signup", "/signup/verify"]}
@@ -18,13 +18,13 @@ const App = props => {
           path="/"
           render={() => (isAuth ? <Home /> : <Redirect to="/signin" />)}
         />
-      </Switch>
-      {/* {isAuth
+      </Switch> */}
+      {isAuth
         ? <Redirect to='/me' />
         : <Redirect to='/signin' />
       }
       <Route exact path={['/', '/signin', '/signup', '/signup/verify']} component={Auth} />
-      <Route path='/me' component={Home} /> */}
+      <Route path='/me' component={Home} />
     </div>
   )
 }
